@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-interface TopMenu {
+export interface TopMenu {
   title: string;
   link?: string;
 }
@@ -13,21 +13,19 @@ interface TopMenu {
 
 export class ScrollComponentComponent implements OnInit {
 
-  menus: TopMenu[] = [
-    { title: 'Featured', link: '' },
-    { title: "Men's suit", link: '' },
-    { title: 'Mobile Phone', link: '' },
-    { title: 'Women suit', link: '' },
-    { title: 'Toys', link: '' },
-    { title: 'Games', link: '' },
-    { title: 'Bang!', link: '' },
-  ];
-
+  @Input() menus: TopMenu[] = [];
+  @Output() tabSelector = new EventEmitter();
   selectIndex = -1;
+  tabSelected = -1;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleSelection(index: number) {
+    this.selectIndex = index;
+    this.tabSelected = this.selectIndex;
   }
 
 }
