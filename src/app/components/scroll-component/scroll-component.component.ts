@@ -17,6 +17,10 @@ export class ScrollComponentComponent implements OnInit {
   @Output() tabSelector = new EventEmitter();
   selectIndex = -1;
   tabSelected = -1;
+  @Input() backgroundColor='#fff';
+  @Input() underlineColor = 'yellow';
+  @Input() titleActiveColor = 'blue';
+  @Input() titleColor = 'red';
 
   constructor() { }
 

@@ -1,9 +1,9 @@
-<ul>
+<ul [ngStyle]= "{'background-color':backgroundColor}">
   <li *ngFor="let item of menus; let index = index; let first = first;" >
     <a href="#"
-        [class.active] =  'selectIndex === index'
+        [ngStyle] =  "{color: index === selectIndex? titleActiveColor: titleColor}"
         (click)="handleSelection(index)">{{ item.title }}
     </a>
-    <span class="indicator" *ngIf="selectIndex === index;"></span>
+    <span [ngStyle] =  "{'background-color': underlineColor}" *ngIf="selectIndex === index;"></span>
   </li>
 </ul>
